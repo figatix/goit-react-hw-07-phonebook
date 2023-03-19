@@ -3,7 +3,8 @@ import React from "react";
 
 import { StyledAddBtn, StyledContactItem } from "./ContactItem.styled";
 import { useDispatch } from 'react-redux'
-import { deleteContact } from "redux/contactSlice";
+
+import { deleteContact } from "redux/operations";
 
 const ContactItem = ({ personName, personNumber, id }) => {
   const dispatch = useDispatch()
@@ -12,6 +13,7 @@ const ContactItem = ({ personName, personNumber, id }) => {
     <StyledContactItem>
       {personName}: {personNumber}
       <StyledAddBtn
+
         onClick={() => dispatch(deleteContact(id))}
         type="button">Delete</StyledAddBtn>
     </StyledContactItem>
